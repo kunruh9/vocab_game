@@ -1,6 +1,6 @@
 # Vocabulary Game - Initial Requirements
 
-## Core Requirements
+## MVP Requirements
 
 ### 1. Word Recall Feature
 - Display a single word definition at a time
@@ -9,17 +9,26 @@
 - Provide immediate feedback on whether the word was correct
 - Simple navigation to move to the next definition
 
-### 2. User Experience
+### 2. Word Data Management
+- Initial dataset of 1,000-2,000 advanced/uncommon English words
+- Store words and definitions locally on user's device
+- Package data with application (estimated size: 1-2MB)
+- Simple JSON format for word storage
+- Each word entry includes:
+  - Word
+  - Definition
+  - Example usage
+
+### 3. User Experience
 - Clean, minimalist interface
 - Mobile-responsive design
 - Intuitive card navigation
 
-### 3. Data Management
-- Initial set of vocabulary words and definitions
+### 4. Data Management
 - Basic progress tracking
 - Local storage for user progress
 
-### 4. Technical Considerations
+### 5. Technical Considerations
 - Web-based application (for cross-platform compatibility)
 - Simple deployment strategy
 - Easy to extend for future features
@@ -42,10 +51,7 @@
 ## Questions for Refinement
 
 ### 1. Word Selection
-- How would you like to source the initial vocabulary words?
-- Should we start with a specific category or difficulty level?
-- How many words should be included in the initial set?
-- Should we include example sentences with the definitions?
+- Which specific word list should we use for the initial set?
 
 ### 2. User Interaction
 - Should we track correct/incorrect attempts for each word?
