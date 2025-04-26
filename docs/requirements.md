@@ -3,11 +3,19 @@
 ## MVP Requirements
 
 ### 1. Word Recall Feature
-- Display a single word definition at a time
-- Provide a text input field for users to enter the word
-- Compare user's input against the correct word using direct string comparison
-- Provide immediate feedback on whether the word was correct
-- Simple navigation to move to the next definition
+  - Display a single word definition at a time
+  - Display also includes a text input the word which has the given definition
+  - Compare user's input against the correct word using case-insensitive string comparison
+  - Provide immediate feedback on whether the word was correct
+  - Simple navigation to move to the next definition
+  - Each Session is limited to 10 definitions
+  - Maintain a simple scoring system:
+    - Each correct awards one point
+    - Each incorrect awards zero points
+    - Session TTL -- no global score tracking and history for MVP
+  - Keep the current Session score displayed at the top of the screen
+  - The user can quit a Session early at any time
+  - When a Session ends, display the User's score (e.g. "6/10 points!")
 
 ### 2. Word Data Management
 - Initial dataset of 1,000-2,000 advanced/uncommon English words
@@ -19,27 +27,12 @@
   - Definition
   - Example usage
 
-### 3. User Experience
-- Clean, minimalist interface
-- Mobile-responsive design
-- Intuitive card navigation
-
-### 4. Data Management
-- Basic progress tracking
-- Local storage for user progress
-
-### 5. Technical Considerations
+### 3. Technical Considerations
 - Web-based application (for cross-platform compatibility)
 - Simple deployment strategy
 - Easy to extend for future features
 
 ## Questions for Refinement
-
-### 2. User Interaction
-- Should we track correct/incorrect attempts for each word?
-- Would you like to include a simple scoring system in the initial version?
-- Should we track learning progress over time?
-- How should we handle case sensitivity in word matching?
 
 ### 3. Technical Stack
 - Do you have any preferences for the frontend framework (React, Vue, etc.)?
