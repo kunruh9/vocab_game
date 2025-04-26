@@ -33,25 +33,7 @@
 - Simple deployment strategy
 - Easy to extend for future features
 
-## Future Improvements
-
-### 1. Definition Recall Feature
-- Display a single word at a time
-- Provide a text input field for users to enter the definition
-- Compare user's input against the correct definition using direct string matching
-- Provide immediate feedback on whether the definition was correct
-- Simple navigation to move to the next word
-
-### 2. Enhanced Definition Comparison
-- Implement more sophisticated comparison logic beyond direct string matching
-- Consider semantic similarity for definition matching
-- Allow for partial credit on close but not exact matches
-- Support multiple acceptable definitions for the same word
-
 ## Questions for Refinement
-
-### 1. Word Selection
-- Which specific word list should we use for the initial set?
 
 ### 2. User Interaction
 - Should we track correct/incorrect attempts for each word?
@@ -67,8 +49,3 @@
 ### 4. Deployment
 - Do you have a preferred hosting platform in mind?
 - Any specific domain/subdomain requirements?
-
-## Notes
-- This is a living document that will be updated as requirements are refined
-- Comments and suggestions can be added inline
-- Each section can be expanded or modified as needed 
