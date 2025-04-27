@@ -8,7 +8,7 @@ function App() {
     score: 0,
     currentQuestion: 0,
     isGameOver: false,
-    words: vocabularyData,
+    words: vocabularyData.sort(() => Math.random() - 0.5).slice(0, 10),
     currentWord: vocabularyData[0]
   });
 
