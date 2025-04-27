@@ -13,7 +13,6 @@ const GameCard: React.FC<GameCardProps> = ({
   onAnswerSubmit,
   onQuit,
   score,
-  currentQuestion,
 }) => {
   const [userInput, setUserInput] = useState('');
 
