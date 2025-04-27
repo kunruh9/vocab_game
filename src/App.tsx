@@ -12,8 +12,16 @@ function App() {
     currentWord: vocabularyData[0]
   });
 
-  const handleAnswerSubmit = (answer: string) => {
+  const checkAnswer = (answer: string) => {
     const isCorrect = answer.toLowerCase() === gameState.currentWord?.word.toLowerCase();
+    return {
+      isCorrect,
+      feedback: isCorrect ? 'Correct!' : `Incorrect. Answer: ${gameState.currentWord?.word}`
+    };
+  };
+
+  const handleAnswerSubmit = (answer: string) => {
+    const { isCorrect } = checkAnswer(answer);
     
     setGameState(prev => {
       const newScore = isCorrect ? prev.score + 1 : prev.score;
@@ -67,6 +75,7 @@ function App() {
       onQuit={handleQuit}
       score={gameState.score}
       currentQuestion={gameState.currentQuestion}
+      checkAnswer={checkAnswer}
     />
   );
 }

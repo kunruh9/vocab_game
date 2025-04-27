@@ -6,6 +6,7 @@ interface GameCardProps {
   onQuit: () => void;
   score: number;
   currentQuestion: number;
+  checkAnswer: (answer: string) => { isCorrect: boolean; feedback: string };
 }
 
 const GameCard: React.FC<GameCardProps> = ({
@@ -13,13 +14,25 @@ const GameCard: React.FC<GameCardProps> = ({
   onAnswerSubmit,
   onQuit,
   score,
+  checkAnswer,
 }) => {
   const [userInput, setUserInput] = useState('');
+  const [feedback, setResult] = useState<{ message: string; isCorrect: boolean } | null>(null);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onAnswerSubmit(userInput);
-    setUserInput('');
+    const { isCorrect, feedback: feedbackMessage } = checkAnswer(userInput);
+    setResult({
+      message: feedbackMessage,
+      isCorrect
+    });
+    
+    // Wait for 2 seconds before moving to next question
+    setTimeout(() => {
+      onAnswerSubmit(userInput);
+      setUserInput('');
+      setResult(null);
+    }, 2000);
   };
 
   return (
@@ -46,6 +59,12 @@ const GameCard: React.FC<GameCardProps> = ({
                 </p>
               </div>
 
+              {feedback && (
+                <div className={`p-4 rounded-lg ${feedback.isCorrect ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'}`}>
+                  {feedback.message}
+                </div>
+              )}
+
               <form onSubmit={handleSubmit} className="space-y-2">
                 <input
                   type="text"
@@ -54,10 +73,12 @@ const GameCard: React.FC<GameCardProps> = ({
                   className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
                   placeholder="Enter the word..."
                   autoFocus
+                  disabled={feedback !== null}
                 />
                 <button
                   type="submit"
                   className="w-full px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+                  disabled={feedback !== null}
                 >
                   Check Answer
                 </button>
