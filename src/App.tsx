@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import GameCard from './components/GameCard'
-import { Word, GameState } from './types/game'
+import { GameState } from './types/game'
 import vocabularyData from './data/vocabulary.json'
 
 function App() {
