@@ -1,28 +1,15 @@
 import { useState } from 'react'
 import GameCard from './components/GameCard'
 import { Word, GameState } from './types/game'
-
-// Temporary mock data - will be replaced with actual data
-const mockWords: Word[] = [
-  {
-    word: "ephemeral",
-    definition: "Lasting for a very short time",
-    example: "The ephemeral nature of social media posts"
-  },
-  {
-    word: "ubiquitous",
-    definition: "Present, appearing, or found everywhere",
-    example: "Mobile phones are now ubiquitous in modern society"
-  }
-];
+import vocabularyData from './data/vocabulary.json'
 
 function App() {
   const [gameState, setGameState] = useState<GameState>({
     score: 0,
     currentQuestion: 0,
     isGameOver: false,
-    words: mockWords,
-    currentWord: mockWords[0]
+    words: vocabularyData,
+    currentWord: vocabularyData[0]
   });
 
   const handleAnswerSubmit = (answer: string) => {
