@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import GameCard from './components/GameCard'
 import { Word, GameState } from './types/game'
 
